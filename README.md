@@ -46,7 +46,6 @@ This ensures the project runs seamlessly in CI/CD and containerized environments
 
 Run locally in a Python virtual environment:
 
-'''bash
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
@@ -54,30 +53,21 @@ uvicorn app:api --reload --port 8000
 
 
 ## Test the API:
-
-'''bash 
 curl http://127.0.0.1:8000/health
 
-
 ## Run tests and linting:
-
-'''bash
 flake8 .
 pytest -q
 
 ## 🐳 Docker
-
 Build and run the container:
 
-'''bash
 docker build -t ics-security-suite .
 docker run -p 8000:8000 ics-security-suite
 
 ## ☸️ Kubernetes
-
 Deploy into a cluster:
 
-'''bash
 kubectl apply -f k8s/deployment.yaml
 kubectl apply -f k8s/service.yaml
 
