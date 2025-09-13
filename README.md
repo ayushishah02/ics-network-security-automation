@@ -17,6 +17,17 @@ It showcases Python, Docker, Kubernetes, and CI/CD with GitHub Actions.
 - CI pipeline runs lint & tests; builds Docker image (push step left as a comment).
 
 > **Note:** This project **simulates** scanning/log ingestion for safety, so you can run it anywhere.
+> ## External Integrations
+
+In real deployments, this project integrates with:
+- **Nmap** for network scanning and vulnerability detection
+- **Splunk** for log aggregation and visualization
+- **ARPwatch** for ARP anomaly monitoring
+
+⚡️ For portability and CI/CD, this repo uses lightweight **stubs** (`stubs/nmap_stub.py`, `stubs/splunk_stub.py`) to simulate these integrations.  
+
+This way, recruiters/engineers can run the repo without needing Splunk or Nmap installed, while the workflow still demonstrates how I connected my Python modules to external security tools.
+
 
 ---
 
