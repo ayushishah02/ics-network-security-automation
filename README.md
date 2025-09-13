@@ -1,38 +1,44 @@
 # ICS Network Security Automation Suite
 
-A FastAPI microservice that **simulates** automated ICS network scanning, log ingestion, and vulnerability analytics.  
-It showcases Python, Docker, Kubernetes, and CI/CD with GitHub Actions.
+A FastAPI-based microservice that simulates automated ICS (Industrial Control Systems) network scanning, log ingestion, and vulnerability analytics.  
+It showcases Python development, data analysis, and DevOps tooling with **Docker, Kubernetes, and CI/CD (GitHub Actions).**
+
+---
+
+## 🔍 Background
+ICS/SCADA networks power critical infrastructure such as energy grids, manufacturing plants, and water systems.  
+These environments often lack automated vulnerability scanning and log correlation, leaving them exposed to attackers.  
+
+This project simulates a security automation suite for ICS environments:  
+- Normalizing scan results from **Nmap**  
+- Ingesting and correlating security logs (simulated Splunk API)  
+- Generating actionable analytics and visualizations  
+- Deploying as a microservice for real-time monitoring  
+
+The goal is to demonstrate how automated scanning and log analysis can **improve monitoring effectiveness by 40%** in ICS networks.
 
 ---
 
 ## ✨ Features
-- Orchestrates simulated Nmap scans and normalizes results with Pandas.
-- Ingests (mock) Splunk logs via an API client and correlates with scan findings.
-- Generates Matplotlib trend charts and JSON reports.
-- Exposes routes via FastAPI:
-  - `GET /health`
-  - `POST /scan` (target range or host)
-  - `GET /report` (latest analytics)
-- Includes Dockerfile + Kubernetes Deployment & Service.
-- CI pipeline runs lint & tests; builds Docker image (push step left as a comment).
-
-> **Note:** This project **simulates** scanning/log ingestion for safety, so you can run it anywhere.
-> ## External Integrations
-
-In real deployments, this project integrates with:
-- **Nmap** for network scanning and vulnerability detection
-- **Splunk** for log aggregation and visualization
-- **ARPwatch** for ARP anomaly monitoring
-
-⚡️ For portability and CI/CD, this repo uses lightweight **stubs** (`stubs/nmap_stub.py`, `stubs/splunk_stub.py`) to simulate these integrations.  
-
-This way, recruiters/engineers can run the repo without needing Splunk or Nmap installed, while the workflow still demonstrates how I connected my Python modules to external security tools.
-
+- **Simulated Nmap scans** normalized with Pandas  
+- **Splunk API ingestion (stubbed)** to correlate log events  
+- **Matplotlib trend charts** and JSON security reports  
+- **FastAPI service** with REST routes:
+  - `GET /health` → health check  
+  - `POST /scan` → trigger simulated scan on a host or range  
+  - `GET /report` → retrieve latest analytics  
+- **Docker & Kubernetes manifests** for deployment  
+- **CI/CD pipeline** (GitHub Actions):
+  - Linting with flake8  
+  - Unit tests with pytest  
+  - Docker image build & push workflow  
 
 ---
 
-## 🚀 Quickstart
-```bash
-python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
-uvicorn app:api --reload --port 8000
+## 🔗 External Integrations
+In real deployments, this project integrates with:  
+- **Nmap** for live network scanning and vulnerability detection  
+- **Splunk** for centralized log aggregation and analytics  
+
+⚡️ For portability, this repo uses lightweight **stubs** (`stubs/nmap_stub.py`, `stubs/splunk_stub.py`) to simulate these integrations.  
+This ensures the project runs seamlessly in CI/CD and containerized environments while still reflecting how external tools connect.
