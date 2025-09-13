@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ics-automation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ics-automation
+  template:
+    metadata:
+      labels:
+        app: ics-automation
+    spec:
+      containers:
+      - name: api
+        image: ghcr.io/youruser/ics-automation:latest
+        ports:
+        - containerPort: 8000
